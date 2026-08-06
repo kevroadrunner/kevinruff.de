@@ -87,7 +87,7 @@
 <Card.Root class="mx-auto max-w-lg">
   <Card.Header>
     <h1 class="text-3xl font-bold">Building something awesome</h1>
-    <Badge variant={cycle > 1 ? 'destructive' : 'default'}>Build #{cycle}</Badge>
+    <Badge variant={cycle > 1 ? 'destructive' : 'outline'}>Build #{cycle}</Badge>
   </Card.Header>
   <Card.Content class="space-y-4">
     <p>
