@@ -1,9 +1,17 @@
 <script lang="ts">
   import './layout.css';
+  import Header from '$lib/components/Header.svelte';
+  import Footer from '$lib/components/Footer.svelte';
 
   const { children } = $props();
 </script>
 
-<main class="p-8">
-  {@render children()}
+<main class="min-h-screen min-w-sm bg-background">
+  <div class="flex min-h-screen flex-col">
+    <Header />
+    <section class="flex flex-1 flex-col">
+      {@render children()}
+    </section>
+    <Footer />
+  </div>
 </main>
