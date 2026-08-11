@@ -9,6 +9,11 @@
   ];
 </script>
 
+<svelte:head>
+  <title>Kevin Ruff</title>
+  <meta name="description" content="Personal website of Kevin Ruff" />
+</svelte:head>
+
 <div class="flex flex-1 items-center justify-center px-2 py-4 sm:px-8 sm:py-6">
   <nav class="flex min-w-[67vw] flex-col">
     {#each navigation as Link (Link.href)}
