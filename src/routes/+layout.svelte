@@ -6,7 +6,7 @@
   const { children } = $props();
 </script>
 
-<main class="min-h-screen min-w-sm bg-background">
+<main class="min-h-screen min-w-xs bg-background">
   <div class="flex min-h-screen flex-col">
     <Header />
     <section class="flex flex-1 flex-col">
