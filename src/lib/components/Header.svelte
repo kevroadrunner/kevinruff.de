@@ -11,8 +11,8 @@
   import { Button } from '$lib/components/ui/button';
 </script>
 
-<header class="flex items-center justify-between p-2">
-  <div class="flex items-center gap-2">
+<header class="flex items-center justify-between gap-2 p-2 border-b">
+  <div class="flex shrink-0 gap-2">
     <Button
       size="icon"
       variant={page.url.pathname === '/' ? 'default' : 'outline'}
@@ -26,9 +26,9 @@
         <ChevronLeft class="size-6" />
       </Button>
     {/if}
-    <span>Kevin Ruff</span>
   </div>
-  <nav class="flex items-center gap-2">
+  <div class="min-w-0 truncate">Kevin Ruff</div>
+  <nav class="flex shrink-0 gap-2">
     <Button size="icon" href="https://github.com/kevroadrunner" target="_blank">
       <Github class="size-6" />
     </Button>
