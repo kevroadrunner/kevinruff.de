@@ -1,12 +1,10 @@
 <script lang="ts">
+  import title from '$lib/title';
 </script>
 
 <svelte:head>
-  <title>Code | Kevin Ruff</title>
-  <meta
-    name="description"
-    content="TODO"
-  />
+  <title>{title('Code')}</title>
+  <meta name="description" content="TODO" />
 </svelte:head>
 
 <section class="flex flex-1 flex-col items-center justify-center">

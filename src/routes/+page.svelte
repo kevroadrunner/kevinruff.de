@@ -1,22 +1,24 @@
 <script lang="ts">
   import { resolve } from '$app/paths';
+  import title from '$lib/title';
+  import meta from '$lib/data/meta';
   import User from '@iconify-svelte/mdi/smiley-cool-outline';
   import Code from '@iconify-svelte/mdi/code';
 
-  const navigation = [
+  const navItems = [
     { label: 'About', href: '/about', icon: User },
     { label: 'Code', href: '/code', icon: Code },
   ];
 </script>
 
 <svelte:head>
-  <title>Kevin Ruff</title>
-  <meta name="description" content="Personal website of Kevin Ruff" />
+  <title>{title()}</title>
+  <meta name="description" content={`Personal website of ${meta.name}`} />
 </svelte:head>
 
 <div class="flex flex-1 items-center justify-center px-2 py-4 sm:px-8 sm:py-6">
   <nav class="flex min-w-[67vw] flex-col">
-    {#each navigation as Link (Link.href)}
+    {#each navItems as Link (Link.href)}
       <a
         href={resolve(Link.href)}
         class="flex border-b py-6 transition-colors last:border-0 hover:text-primary sm:py-8"
