@@ -24,6 +24,9 @@ importers:
       '@fontsource-variable/playfair-display':
         specifier: ^5.3.0
         version: 5.3.0
+      '@iconify-svelte/simple-icons':
+        specifier: ^1.0.41
+        version: 1.0.41(svelte@5.56.8(@typescript-eslint/types@8.66.0))
       '@internationalized/date':
         specifier: ^3.12.3
         version: 3.12.3
@@ -202,6 +205,9 @@ packages:
 
   '@iconify-svelte/mdi@1.0.2':
     resolution: {integrity: sha512-rZ+nkXXR/KKvxwqaiBnXywoi6horZx4JYwMGLaMTUWKtIKy/fsUAkYXZIV6/e2Ks2rHI4us+bCm5+zEnFYds3w==}
+
+  '@iconify-svelte/simple-icons@1.0.41':
+    resolution: {integrity: sha512-zcBNvm5PGLq1x3MqFdtfVWHhzAewMudv4DGUg7SrL0CNBfNvy7Lb2pfBzIxbtsl/ZuPhkBHiAe6g5QADdXP0OQ==}
 
   '@iconify/css-svelte@1.0.1':
     resolution: {integrity: sha512-f9w1anXXBm48VjDEWDrGTybdiwnDTIChcUpBK/UtXR/AhNp/Co/VPp00t7dO93j+4Je0OwMKyc/HvI7Lpv3PKg==}
@@ -1647,6 +1653,12 @@ snapshots:
   '@humanwhocodes/retry@0.4.3': {}
 
   '@iconify-svelte/mdi@1.0.2(svelte@5.56.8(@typescript-eslint/types@8.66.0))':
+    dependencies:
+      '@iconify/css-svelte': 1.0.1(svelte@5.56.8(@typescript-eslint/types@8.66.0))
+    transitivePeerDependencies:
+      - svelte
+
+  '@iconify-svelte/simple-icons@1.0.41(svelte@5.56.8(@typescript-eslint/types@8.66.0))':
     dependencies:
       '@iconify/css-svelte': 1.0.1(svelte@5.56.8(@typescript-eslint/types@8.66.0))
     transitivePeerDependencies:

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Copyright from '@iconify-svelte/mdi/at';
+  import Copyright from '@iconify-svelte/mdi/copyright';
 </script>
 
 <footer class="flex justify-center gap-2 bg-muted py-2 text-xs text-muted-foreground">

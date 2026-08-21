@@ -20,6 +20,7 @@
     "@fontsource-variable/noto-sans": "^5.3.0",
     "@fontsource-variable/oxanium": "^5.3.0",
     "@fontsource-variable/playfair-display": "^5.3.0",
+    "@iconify-svelte/simple-icons": "^1.0.41",
     "@internationalized/date": "^3.12.3",
     "@lucide/svelte": "^1.29.0",
     "@sveltejs/adapter-auto": "latest",

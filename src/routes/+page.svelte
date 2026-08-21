@@ -4,11 +4,13 @@
   import meta from '$lib/data/meta';
   import User from '@iconify-svelte/mdi/smiley-cool-outline';
   import Code from '@iconify-svelte/mdi/code';
+  import Console from '@iconify-svelte/mdi/console';
   import { cn } from '$lib/utils';
 
   const navItems = [
     { label: 'About', href: '/about', icon: User },
     { label: 'Code', href: '/code', icon: Code, disabled: true },
+    { label: 'Tools', href: '/tools', icon: Console },
   ];
 </script>
 
