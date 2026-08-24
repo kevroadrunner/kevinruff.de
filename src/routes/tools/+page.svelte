@@ -10,6 +10,7 @@
   import Postman from '@iconify-svelte/simple-icons/postman';
   import Webstorm from '@iconify-svelte/simple-icons/webstorm';
   import Terminal from '@iconify-svelte/mdi/console';
+  import Nvm from '@iconify-svelte/simple-icons/nvm';
 
   const tools = [
     { name: 'WebStorm', icon: Webstorm, size: 'large' },
@@ -18,8 +19,9 @@
     { name: 'SSH', icon: Terminal, size: 'default' },
     { name: 'Oh My Zsh', icon: Terminal, size: 'default' },
     { name: 'macOS', icon: Macos, size: 'large' },
-    { name: 'Linux', icon: Linux, size: 'default' },
+    { name: 'nvm', icon: Nvm, size: 'default' },
     { name: 'iTerm2', icon: Iterm2, size: 'large' },
+    { name: 'Linux', icon: Linux, size: 'default' },
     { name: 'Postman', icon: Postman, size: 'default' },
     { name: 'Homebrew', icon: Homebrew, size: 'default' }
   ];
