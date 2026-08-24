@@ -11,6 +11,7 @@
   import Webstorm from '@iconify-svelte/simple-icons/webstorm';
   import Terminal from '@iconify-svelte/mdi/console';
   import Nvm from '@iconify-svelte/simple-icons/nvm';
+  import Brave from '@iconify-svelte/simple-icons/brave';
 
   const tools = [
     { name: 'WebStorm', icon: Webstorm, size: 'large' },
@@ -20,9 +21,10 @@
     { name: 'Oh My Zsh', icon: Terminal, size: 'default' },
     { name: 'macOS', icon: Macos, size: 'large' },
     { name: 'nvm', icon: Nvm, size: 'default' },
-    { name: 'iTerm2', icon: Iterm2, size: 'large' },
     { name: 'Linux', icon: Linux, size: 'default' },
+    { name: 'iTerm2', icon: Iterm2, size: 'large' },
     { name: 'Postman', icon: Postman, size: 'default' },
+    { name: 'Brave', icon: Brave, size: 'large' },
     { name: 'Homebrew', icon: Homebrew, size: 'default' }
   ];
 </script>
@@ -45,14 +47,14 @@
           class={[
           'group flex min-h-40 flex-col justify-between p-6 transition-colors',
           'hover:bg-muted/50',
-          Tool.size === 'large' && 'md:col-span-2 md:row-span-2 md:min-h-84'
+          Tool.size === 'large' && 'md:col-span-2'
         ]}
       >
         <div class="flex size-12 items-center justify-center">
           <Tool.icon class="size-10 text-muted-foreground transition-all group-hover:scale-110 group-hover:text-primary" />
         </div>
         <div>
-          <h2 class="text-lg font-medium">{Tool.name}</h2>
+          <h2 class="text-lg text-right font-medium">{Tool.name}</h2>
         </div>
       </Card>
     {/each}
