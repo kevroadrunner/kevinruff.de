@@ -1,5 +1,6 @@
 <script lang="ts">
   import { resolve } from '$app/paths';
+  import type { RouteId } from '$app/types';
   import title from '$lib/title';
   import meta from '$lib/data/meta';
   import User from '@iconify-svelte/mdi/smiley-cool-outline';
@@ -7,7 +8,14 @@
   import Console from '@iconify-svelte/mdi/console';
   import { cn } from '$lib/utils';
 
-  const navItems = [
+  type NavItem = {
+    label: string;
+    href: RouteId;
+    icon: typeof User;
+    disabled?: true;
+  };
+
+  const navItems: NavItem[] = [
     { label: 'About', href: '/about', icon: User },
     { label: 'Code', href: '/code', icon: Code, disabled: true },
     { label: 'Tools', href: '/tools', icon: Console },
@@ -19,7 +27,7 @@
   <meta name="description" content={`Personal website of ${meta.name}`} />
 </svelte:head>
 
-<div class="flex flex-1 items-center justify-center px-2 py-4 sm:px-8 sm:py-6">
+<section class="flex flex-1 items-center justify-center px-2 py-4 sm:px-8 sm:py-6">
   <nav class="flex min-w-[67vw] flex-col">
     {#each navItems as Link (Link.href)}
       {@const component = !Link.disabled ? 'a' : 'span'}
@@ -40,4 +48,4 @@
       </svelte:element>
     {/each}
   </nav>
-</div>
+</section>

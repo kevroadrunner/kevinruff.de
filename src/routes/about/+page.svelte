@@ -137,7 +137,8 @@
 
   <AboutSection label="Still Learning">
     {#snippet title()}
-      I don’t always know the best solution upfront. I often find it by building, testing, and iterating.
+      I don’t always know the best solution upfront. I often find it by building, testing, and
+      iterating.
     {/snippet}
   </AboutSection>
 </div>

@@ -25,7 +25,7 @@
     { name: 'iTerm2', icon: Iterm2, size: 'large' },
     { name: 'Postman', icon: Postman, size: 'default' },
     { name: 'Brave', icon: Brave, size: 'large' },
-    { name: 'Homebrew', icon: Homebrew, size: 'default' }
+    { name: 'Homebrew', icon: Homebrew, size: 'default' },
   ];
 </script>
 
@@ -37,24 +37,24 @@
 <section class="mx-auto max-w-5xl space-y-10 py-16">
   <header class="space-y-3">
     <h1 class="text-4xl font-semibold tracking-tight">Tools</h1>
-    <p class="max-w-xl text-lg text-muted-foreground">
-      My daily companions.
-    </p>
+    <p class="max-w-xl text-lg text-muted-foreground">My daily companions.</p>
   </header>
   <div class="grid grid-cols-2 gap-4 md:grid-cols-5">
     {#each tools as Tool (Tool.name)}
       <Card
-          class={[
+        class={[
           'group flex min-h-40 flex-col justify-between p-6 transition-colors',
           'hover:bg-muted/50',
-          Tool.size === 'large' && 'md:col-span-2'
+          Tool.size === 'large' && 'md:col-span-2',
         ]}
       >
         <div class="flex size-12 items-center justify-center">
-          <Tool.icon class="size-10 text-muted-foreground transition-all group-hover:scale-110 group-hover:text-primary" />
+          <Tool.icon
+            class="size-10 text-muted-foreground transition-all group-hover:scale-110 group-hover:text-primary"
+          />
         </div>
         <div>
-          <h2 class="text-lg text-right font-medium">{Tool.name}</h2>
+          <h2 class="text-right text-lg font-medium">{Tool.name}</h2>
         </div>
       </Card>
     {/each}

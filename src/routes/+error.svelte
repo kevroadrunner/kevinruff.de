@@ -19,11 +19,11 @@
   const statusMap: Record<string, StatusContent> = {
     '404': {
       title: 'Well, this is awkward',
-      message: "I couldn't find the page you were looking for.",
+      message: "I couldn't find the page you're' looking for.",
       hint: 'I did find some other things, though.',
     },
     '500': {
-      title: 'Well, this escalated quickly',
+      title: 'Well, that escalated quickly',
       message: 'Something went wrong on my end.',
       hint: "Let's pretend this never happened.",
     },
@@ -54,7 +54,7 @@
     statusMap[status.toString()] || {
       title: 'Something went terribly wrong',
       message: 'Maybe try again?',
-      hint: 'Good luck.'
+      hint: 'Good luck.',
     }
   );
 
@@ -62,7 +62,7 @@
     const trimmed = command.trim();
     // Handle blank Enter
     if (!trimmed) {
-      output = [...output, '$'];
+      appendOutput('$');
       historyIndex = -1;
       historyDraft = '';
       return;
@@ -71,16 +71,16 @@
     historyIndex = -1;
     historyDraft = '';
     const [cmd, ...args] = trimmed.split(/\s+/);
-    output = [...output, `$ ${trimmed}`];
+    appendOutput(`$ ${trimmed}`);
     switch (cmd.toLowerCase()) {
       case 'help':
-        output = [...output, ...commands.help];
+        appendOutput(...commands.help);
         break;
       case 'ls':
-        output = [...output, ...commands.ls];
+        appendOutput(...commands.ls);
         break;
       case 'pwd':
-        output = [...output, ...commands.pwd];
+        appendOutput(...commands.pwd);
         break;
       case 'clear':
         output = [];
@@ -89,18 +89,18 @@
         const path = args[0];
         const normalized = path === '~' ? '/' : path;
         if (!normalized) {
-          output = [...output, 'usage: cd <path>'];
+          appendOutput('usage: cd <path>');
         } else if (normalized === '/') {
           goto(resolve('/'));
         } else if (routes.includes(normalized)) {
           goto(resolve(normalized));
         } else {
-          output = [...output, `cd: no such directory: ${path}`];
+          appendOutput(`cd: no such directory: ${path}`);
         }
         break;
       }
       default:
-        output = [...output, `command not found: ${cmd}`];
+        appendOutput(`command not found: ${cmd}`);
     }
     input = '';
   };
@@ -146,6 +146,17 @@
   };
 
   let inputElement = $state<HTMLInputElement>();
+  let terminalElement = $state<HTMLDivElement>();
+
+  const appendOutput = (...lines: string[]) => {
+    output = [...output, ...lines];
+
+    requestAnimationFrame(() => {
+      if (terminalElement) {
+        terminalElement.scrollTop = terminalElement.scrollHeight;
+      }
+    });
+  };
 
   onMount(() => {
     inputElement?.focus();
@@ -153,10 +164,10 @@
 </script>
 
 <svelte:head>
-  <title>{title(errorContent.title)}</title>
+  <title>{title(`${status} • ${errorContent.title}`)}</title>
 </svelte:head>
 
-<section class="mx-auto max-w-5xl space-y-10 py-16">
+<section class="mx-auto max-w-5xl space-y-10 px-2 py-4 sm:px-8 sm:py-6">
   <header class="space-y-3">
     <div class="text-xl font-bold tracking-tighter text-primary">
       {status}
@@ -182,7 +193,7 @@
       <span class="size-2.5 rounded-full bg-gray-400"></span>
       <span class="ml-1 text-xs">Terminal</span>
     </div>
-    <div class="space-y-1 p-2 font-mono">
+    <div bind:this={terminalElement} class="h-[30vh] space-y-1 overflow-y-auto p-2 font-mono">
       {#each output as line, i (`${i}.line`)}
         <div>{line}</div>
       {/each}
