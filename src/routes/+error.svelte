@@ -9,7 +9,7 @@
   import { page } from '$app/state';
   import title from '$lib/title';
   import { onMount } from 'svelte';
-  import type {RouteId} from "$app/types";
+  import type { RouteId } from '$app/types';
 
   type StatusContent = {
     title: string;
@@ -88,7 +88,7 @@
         break;
       case 'cd': {
         const path = args[0];
-        const normalized = (path === '~' ? '/' : path);
+        const normalized = path === '~' ? '/' : path;
         if (!normalized) {
           appendOutput('usage: cd <path>');
         } else if (normalized === '/') {

@@ -1,8 +1,8 @@
 <script lang="ts">
-  import type {RouteId} from "$app/types";
+  import type { RouteId } from '$app/types';
   import { page } from '$app/state';
-  import {resolve} from '$app/paths';
-  import {cn} from "$lib/utils";
+  import { resolve } from '$app/paths';
+  import { cn } from '$lib/utils';
   import Copyright from '@iconify-svelte/mdi/copyright';
 
   type NavItem = {
@@ -29,8 +29,8 @@
   {#each navItems as item (item.href)}
     <span>•</span>
     <a
-        href={resolve(item.href)}
-        class={cn('hover:underline', { underline: page.url.pathname === item.href })}>{item.name}</a
+      href={resolve(item.href)}
+      class={cn('hover:underline', { underline: page.url.pathname === item.href })}>{item.name}</a
     >
   {/each}
 </footer>
