@@ -9,6 +9,7 @@
   import { page } from '$app/state';
   import title from '$lib/title';
   import { onMount } from 'svelte';
+  import type {RouteId} from "$app/types";
 
   type StatusContent = {
     title: string;
@@ -29,7 +30,7 @@
     },
   };
 
-  const routes = ['/about', '/code', '/tools'];
+  const routes: RouteId[] = ['/about', /*'/code',*/ '/tools'];
 
   const commands = {
     help: [
@@ -87,13 +88,13 @@
         break;
       case 'cd': {
         const path = args[0];
-        const normalized = path === '~' ? '/' : path;
+        const normalized = (path === '~' ? '/' : path);
         if (!normalized) {
           appendOutput('usage: cd <path>');
         } else if (normalized === '/') {
           goto(resolve('/'));
-        } else if (routes.includes(normalized)) {
-          goto(resolve(normalized));
+        } else if (routes.includes(normalized as RouteId)) {
+          goto(resolve(normalized as RouteId));
         } else {
           appendOutput(`cd: no such directory: ${path}`);
         }

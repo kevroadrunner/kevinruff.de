@@ -3,7 +3,7 @@
   import type { RouteId } from '$app/types';
   import title from '$lib/title';
   import meta from '$lib/data/meta';
-  import User from '@iconify-svelte/mdi/smiley-cool-outline';
+  import User from '@iconify-svelte/mdi/smiley-kiss-outline';
   import Code from '@iconify-svelte/mdi/code';
   import Console from '@iconify-svelte/mdi/console';
   import { cn } from '$lib/utils';
